@@ -1,0 +1,348 @@
+{
+ "title": "Readers-Writers - Semaphore based",
+ "kind": "rw",
+ "approach": "Semaphores: mutex(1) + wrt(1)",
+ "actors": [
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "W1",
+  "W2"
+ ],
+ "initial": {
+  "R1": "idle",
+  "R2": "idle",
+  "R3": "idle",
+  "R4": "idle",
+  "W1": "idle",
+  "W2": "idle"
+ },
+ "notes": "4 readers, 2 writers, 3 rounds",
+ "events": [
+  {
+   "t": 0.1721,
+   "actor": "R2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.1722,
+   "actor": "R2",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.1736,
+   "actor": "R4",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.1737,
+   "actor": "R4",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.1906,
+   "actor": "R1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.1907,
+   "actor": "R1",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.1996,
+   "actor": "W2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.2626,
+   "actor": "R3",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.2627,
+   "actor": "R3",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.2648,
+   "actor": "W1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.3549,
+   "actor": "R4",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.3978,
+   "actor": "R1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.418,
+   "actor": "R2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.436,
+   "actor": "R2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.4361,
+   "actor": "R2",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.5069,
+   "actor": "R1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.5069,
+   "actor": "R1",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.5245,
+   "actor": "R3",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.5325,
+   "actor": "R4",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.5326,
+   "actor": "R4",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.5372,
+   "actor": "R3",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.5373,
+   "actor": "R3",
+   "state": "reading",
+   "detail": "value=0"
+  },
+  {
+   "t": 0.7154,
+   "actor": "R2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.7346,
+   "actor": "R1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.7361,
+   "actor": "R3",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.7551,
+   "actor": "R4",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.7552,
+   "actor": "W2",
+   "state": "writing",
+   "detail": "0->1"
+  },
+  {
+   "t": 0.8553,
+   "actor": "R1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.9629,
+   "actor": "R4",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.964,
+   "actor": "W2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.9641,
+   "actor": "W1",
+   "state": "writing",
+   "detail": "1->2"
+  },
+  {
+   "t": 0.9846,
+   "actor": "R2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.9987,
+   "actor": "R3",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.0965,
+   "actor": "W2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.1818,
+   "actor": "W1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.1819,
+   "actor": "R1",
+   "state": "reading",
+   "detail": "value=2"
+  },
+  {
+   "t": 1.1821,
+   "actor": "R4",
+   "state": "reading",
+   "detail": "value=2"
+  },
+  {
+   "t": 1.1821,
+   "actor": "R2",
+   "state": "reading",
+   "detail": "value=2"
+  },
+  {
+   "t": 1.1823,
+   "actor": "R3",
+   "state": "reading",
+   "detail": "value=2"
+  },
+  {
+   "t": 1.261,
+   "actor": "W1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.3406,
+   "actor": "R4",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3556,
+   "actor": "R3",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3731,
+   "actor": "R2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3806,
+   "actor": "R1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3807,
+   "actor": "W2",
+   "state": "writing",
+   "detail": "2->3"
+  },
+  {
+   "t": 1.6283,
+   "actor": "W2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.6284,
+   "actor": "W1",
+   "state": "writing",
+   "detail": "3->4"
+  },
+  {
+   "t": 1.7986,
+   "actor": "W2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.8911,
+   "actor": "W1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.8912,
+   "actor": "W2",
+   "state": "writing",
+   "detail": "4->5"
+  },
+  {
+   "t": 2.0416,
+   "actor": "W2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 2.1406,
+   "actor": "W1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 2.1407,
+   "actor": "W1",
+   "state": "writing",
+   "detail": "5->6"
+  },
+  {
+   "t": 2.3752,
+   "actor": "W1",
+   "state": "idle",
+   "detail": ""
+  }
+ ]
+}

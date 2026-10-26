@@ -1,0 +1,348 @@
+{
+ "title": "Readers-Writers - Monitor based",
+ "kind": "rw",
+ "approach": "Monitor: lock + condition variable (writer preference)",
+ "actors": [
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "W1",
+  "W2"
+ ],
+ "initial": {
+  "R1": "idle",
+  "R2": "idle",
+  "R3": "idle",
+  "R4": "idle",
+  "W1": "idle",
+  "W2": "idle"
+ },
+ "notes": "4 readers, 2 writers, 3 rounds",
+ "events": [
+  {
+   "t": 0.0539,
+   "actor": "W1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.054,
+   "actor": "W1",
+   "state": "writing",
+   "detail": "0->1"
+  },
+  {
+   "t": 0.0568,
+   "actor": "W2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.098,
+   "actor": "R2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.2149,
+   "actor": "R3",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.2219,
+   "actor": "R1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.2559,
+   "actor": "R4",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.2605,
+   "actor": "W1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.2615,
+   "actor": "W2",
+   "state": "writing",
+   "detail": "1->2"
+  },
+  {
+   "t": 0.4183,
+   "actor": "W1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.5431,
+   "actor": "W2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.5433,
+   "actor": "W1",
+   "state": "writing",
+   "detail": "2->3"
+  },
+  {
+   "t": 0.5738,
+   "actor": "W2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.7164,
+   "actor": "W1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.7165,
+   "actor": "W2",
+   "state": "writing",
+   "detail": "3->4"
+  },
+  {
+   "t": 0.9025,
+   "actor": "W1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 0.9425,
+   "actor": "W2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 0.9427,
+   "actor": "W1",
+   "state": "writing",
+   "detail": "4->5"
+  },
+  {
+   "t": 1.1074,
+   "actor": "W1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.1076,
+   "actor": "R2",
+   "state": "reading",
+   "detail": "value=5"
+  },
+  {
+   "t": 1.1077,
+   "actor": "R4",
+   "state": "reading",
+   "detail": "value=5"
+  },
+  {
+   "t": 1.1077,
+   "actor": "R3",
+   "state": "reading",
+   "detail": "value=5"
+  },
+  {
+   "t": 1.1078,
+   "actor": "R1",
+   "state": "reading",
+   "detail": "value=5"
+  },
+  {
+   "t": 1.151,
+   "actor": "W2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.2685,
+   "actor": "R3",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3455,
+   "actor": "R1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3456,
+   "actor": "R2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3785,
+   "actor": "R4",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.3786,
+   "actor": "W2",
+   "state": "writing",
+   "detail": "5->6"
+  },
+  {
+   "t": 1.3801,
+   "actor": "R3",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.4254,
+   "actor": "R2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.4925,
+   "actor": "R4",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.5316,
+   "actor": "W2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.5317,
+   "actor": "R3",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.5318,
+   "actor": "R2",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.5319,
+   "actor": "R4",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.5386,
+   "actor": "R1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.5386,
+   "actor": "R1",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.6914,
+   "actor": "R2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.7559,
+   "actor": "R1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.759,
+   "actor": "R4",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.7815,
+   "actor": "R3",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 1.8016,
+   "actor": "R1",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.8017,
+   "actor": "R1",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.9089,
+   "actor": "R2",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.9089,
+   "actor": "R2",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.9104,
+   "actor": "R4",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.9104,
+   "actor": "R4",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.9594,
+   "actor": "R3",
+   "state": "waiting",
+   "detail": ""
+  },
+  {
+   "t": 1.9594,
+   "actor": "R3",
+   "state": "reading",
+   "detail": "value=6"
+  },
+  {
+   "t": 1.9918,
+   "actor": "R1",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 2.1755,
+   "actor": "R2",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 2.196,
+   "actor": "R4",
+   "state": "idle",
+   "detail": ""
+  },
+  {
+   "t": 2.2391,
+   "actor": "R3",
+   "state": "idle",
+   "detail": ""
+  }
+ ]
+}

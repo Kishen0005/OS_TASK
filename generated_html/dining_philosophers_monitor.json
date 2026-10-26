@@ -1,0 +1,676 @@
+{
+ "title": "Dining Philosophers (4) - Monitor based",
+ "kind": "dp",
+ "approach": "Monitor: lock + condition variable, state[] + test()",
+ "actors": [
+  "P0",
+  "P1",
+  "P2",
+  "P3",
+  "F0",
+  "F1",
+  "F2",
+  "F3"
+ ],
+ "initial": {
+  "P0": "thinking",
+  "P1": "thinking",
+  "P2": "thinking",
+  "P3": "thinking",
+  "F0": "free",
+  "F1": "free",
+  "F2": "free",
+  "F3": "free"
+ },
+ "notes": "3 meals each",
+ "events": [
+  {
+   "t": 0.0097,
+   "actor": "P1",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.0097,
+   "actor": "P1",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.0097,
+   "actor": "F1",
+   "state": "held",
+   "detail": "P1"
+  },
+  {
+   "t": 0.0097,
+   "actor": "F2",
+   "state": "held",
+   "detail": "P1"
+  },
+  {
+   "t": 0.0097,
+   "actor": "P1",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.1625,
+   "actor": "P0",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.1705,
+   "actor": "P3",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.1705,
+   "actor": "P3",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.1705,
+   "actor": "F3",
+   "state": "held",
+   "detail": "P3"
+  },
+  {
+   "t": 0.1705,
+   "actor": "F0",
+   "state": "held",
+   "detail": "P3"
+  },
+  {
+   "t": 0.1705,
+   "actor": "P3",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.1833,
+   "actor": "P2",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.1964,
+   "actor": "P1",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 0.1965,
+   "actor": "F1",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.1965,
+   "actor": "F2",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.1965,
+   "actor": "P1",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "P3",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "F3",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "F0",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "P3",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "P2",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "F2",
+   "state": "held",
+   "detail": "P2"
+  },
+  {
+   "t": 0.363,
+   "actor": "F3",
+   "state": "held",
+   "detail": "P2"
+  },
+  {
+   "t": 0.363,
+   "actor": "P2",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "P0",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.363,
+   "actor": "F0",
+   "state": "held",
+   "detail": "P0"
+  },
+  {
+   "t": 0.363,
+   "actor": "F1",
+   "state": "held",
+   "detail": "P0"
+  },
+  {
+   "t": 0.3631,
+   "actor": "P0",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.415,
+   "actor": "P1",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.5804,
+   "actor": "P3",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.5848,
+   "actor": "P2",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 0.5848,
+   "actor": "F2",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.5848,
+   "actor": "F3",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.5848,
+   "actor": "P2",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 0.614,
+   "actor": "P0",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 0.614,
+   "actor": "F0",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.614,
+   "actor": "F1",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.614,
+   "actor": "P0",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 0.614,
+   "actor": "P3",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.614,
+   "actor": "F3",
+   "state": "held",
+   "detail": "P3"
+  },
+  {
+   "t": 0.614,
+   "actor": "F0",
+   "state": "held",
+   "detail": "P3"
+  },
+  {
+   "t": 0.614,
+   "actor": "P3",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.6141,
+   "actor": "P1",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.6141,
+   "actor": "F1",
+   "state": "held",
+   "detail": "P1"
+  },
+  {
+   "t": 0.6141,
+   "actor": "F2",
+   "state": "held",
+   "detail": "P1"
+  },
+  {
+   "t": 0.6141,
+   "actor": "P1",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.6867,
+   "actor": "P0",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.748,
+   "actor": "P2",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 0.8201,
+   "actor": "P3",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 0.8202,
+   "actor": "F3",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.8202,
+   "actor": "F0",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.8202,
+   "actor": "P3",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 0.864,
+   "actor": "P1",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 0.8641,
+   "actor": "F1",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.8641,
+   "actor": "F2",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 0.8641,
+   "actor": "P1",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 0.8641,
+   "actor": "P0",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.8641,
+   "actor": "F0",
+   "state": "held",
+   "detail": "P0"
+  },
+  {
+   "t": 0.8641,
+   "actor": "F1",
+   "state": "held",
+   "detail": "P0"
+  },
+  {
+   "t": 0.8641,
+   "actor": "P0",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.8641,
+   "actor": "P2",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 0.8641,
+   "actor": "F2",
+   "state": "held",
+   "detail": "P2"
+  },
+  {
+   "t": 0.8641,
+   "actor": "F3",
+   "state": "held",
+   "detail": "P2"
+  },
+  {
+   "t": 0.8641,
+   "actor": "P2",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 0.8988,
+   "actor": "P1",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 1.0568,
+   "actor": "P2",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 1.0568,
+   "actor": "F2",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.0568,
+   "actor": "F3",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.0568,
+   "actor": "P2",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 1.0629,
+   "actor": "P0",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 1.0629,
+   "actor": "F0",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.0629,
+   "actor": "F1",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.0629,
+   "actor": "P0",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 1.0629,
+   "actor": "P1",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 1.0629,
+   "actor": "F1",
+   "state": "held",
+   "detail": "P1"
+  },
+  {
+   "t": 1.0629,
+   "actor": "F2",
+   "state": "held",
+   "detail": "P1"
+  },
+  {
+   "t": 1.0629,
+   "actor": "P1",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 1.0676,
+   "actor": "P2",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 1.1073,
+   "actor": "P0",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 1.1171,
+   "actor": "P3",
+   "state": "hungry",
+   "detail": ""
+  },
+  {
+   "t": 1.1171,
+   "actor": "P3",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 1.1172,
+   "actor": "F3",
+   "state": "held",
+   "detail": "P3"
+  },
+  {
+   "t": 1.1172,
+   "actor": "F0",
+   "state": "held",
+   "detail": "P3"
+  },
+  {
+   "t": 1.1172,
+   "actor": "P3",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 1.3115,
+   "actor": "P1",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 1.3115,
+   "actor": "F1",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.3115,
+   "actor": "F2",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.3116,
+   "actor": "P1",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "P3",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "F3",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "F0",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "P3",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "P2",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "F2",
+   "state": "held",
+   "detail": "P2"
+  },
+  {
+   "t": 1.3218,
+   "actor": "F3",
+   "state": "held",
+   "detail": "P2"
+  },
+  {
+   "t": 1.3218,
+   "actor": "P2",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "P0",
+   "state": "acquiring",
+   "detail": ""
+  },
+  {
+   "t": 1.3218,
+   "actor": "F0",
+   "state": "held",
+   "detail": "P0"
+  },
+  {
+   "t": 1.3218,
+   "actor": "F1",
+   "state": "held",
+   "detail": "P0"
+  },
+  {
+   "t": 1.3218,
+   "actor": "P0",
+   "state": "eating",
+   "detail": ""
+  },
+  {
+   "t": 1.5114,
+   "actor": "P0",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 1.5114,
+   "actor": "F0",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.5114,
+   "actor": "F1",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.5114,
+   "actor": "P0",
+   "state": "thinking",
+   "detail": ""
+  },
+  {
+   "t": 1.5137,
+   "actor": "P2",
+   "state": "releasing",
+   "detail": ""
+  },
+  {
+   "t": 1.5137,
+   "actor": "F2",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.5137,
+   "actor": "F3",
+   "state": "free",
+   "detail": ""
+  },
+  {
+   "t": 1.5137,
+   "actor": "P2",
+   "state": "thinking",
+   "detail": ""
+  }
+ ]
+}
