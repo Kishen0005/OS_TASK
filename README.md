@@ -5,11 +5,10 @@ Readers-Writers and Dining Philosophers, each solved with semaphores and with mo
 
 | | |
 |---|---|
-| **Name** | [Student Name] |
-| **USN** | [USN] |
+| **Name** | Kishen K Kanchan |
+| **USN** | NNM24is107 |
 | **Course** | Operating Systems |
-| **Semester / Section** | [Semester / Section] |
-| **Instructor** | [Instructor Name] |
+| **Semester / Section** | 5th Semester / B Section |
 
 ---
 
